@@ -1,0 +1,7 @@
+4th july:
+Backend Setup
+Connect with MongoDB Database
+Create All Models
+
+5th july:
+Created github repository and pushed local project into github
