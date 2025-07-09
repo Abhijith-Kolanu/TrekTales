@@ -5,7 +5,8 @@ import axios from 'axios';
 import { toast } from 'sonner';
 import { Link, useNavigate } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setAuthUser } from '@/redux/authSlice';
 
 const Login = () => {
     const [input, setInput] = useState({
@@ -13,8 +14,10 @@ const Login = () => {
         password: ""
     });
     const [loading, setLoading] = useState(false);
-    // const {user} = useSelector(store=>store.auth);
+    const {user} = useSelector(store=>store.auth);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
+
 
     const changeEventHandler = (e) => {
         setInput({ ...input, [e.target.name]: e.target.value });
@@ -32,6 +35,7 @@ const Login = () => {
                 withCredentials: true
             });
             if (res.data.success) {
+                dispatch(setAuthUser(res.data.user));
                 navigate("/");
                 toast.success(res.data.message);
                 setInput({
@@ -47,11 +51,11 @@ const Login = () => {
         }
     }
 
-    // useEffect(()=>{
-    //     if(user){
-    //         navigate("/");
-    //     }
-    // },[])
+    useEffect(()=>{
+        if(user){
+            navigate("/");
+        }
+    },[])
     return (
         <div className='flex items-center w-screen h-screen justify-center'>
             <form onSubmit={signupHandler} className='shadow-lg flex flex-col gap-5 p-8'>

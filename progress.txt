@@ -8,3 +8,6 @@ Created github repository and pushed local project into github
 
 7th july:
 React setup + Login and signup pages (video upto 04:33:33)
+
+8th July :
+Video till 06:28:42 
