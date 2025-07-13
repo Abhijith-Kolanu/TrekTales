@@ -9,8 +9,6 @@ import { toast } from 'sonner';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { setPosts } from '@/redux/postSlice';
-import { VisuallyHidden } from '@radix-ui/react-visually-hidden';
-import { DialogTitle } from '@radix-ui/react-dialog';
 
 const CreatePost = ({ open, setOpen }) => {
   const imageRef = useRef();
@@ -18,8 +16,8 @@ const CreatePost = ({ open, setOpen }) => {
   const [caption, setCaption] = useState("");
   const [imagePreview, setImagePreview] = useState("");
   const [loading, setLoading] = useState(false);
-  const {user} = useSelector(store=>store.auth);
-  const {posts} = useSelector(store=>store.post);
+  const { user } = useSelector(store => store.auth);
+  const { posts } = useSelector(store => store.post);
   const dispatch = useDispatch();
 
   const fileChangeHandler = async (e) => {
@@ -58,9 +56,6 @@ const CreatePost = ({ open, setOpen }) => {
   return (
     <Dialog open={open}>
       <DialogContent onInteractOutside={() => setOpen(false)}>
-        <VisuallyHidden>
-            <DialogTitle>Create Post</DialogTitle>
-        </VisuallyHidden>
         <DialogHeader className='text-center font-semibold'>Create New Post</DialogHeader>
         <div className='flex gap-3 items-center'>
           <Avatar>

@@ -2,32 +2,32 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Signup from './components/Signup'
 import { Provider } from 'react-redux'
 import Login from './components/Login'
-import { Home } from 'lucide-react'
+import Home from './components/Home'
 import MainLayout from './components/MainLayout'
 import Profile from './components/Profile'
 // import store from './store'
 
 const browserRouter = createBrowserRouter([
   {
-    path:"/",
+    path: "/",
     element: <MainLayout />,
     children: [
       {
         path: '/',
-        element: <Home/>
+        element: <Home />
       },
       {
         path: '/profile',
-        element: <Profile/>
+        element: <Profile />
       }
     ]
   },
   {
-    path:'/login',
+    path: '/login',
     element: <Login />
   },
   {
-    path:'/signup',
+    path: '/signup',
     element: <Signup />
   },
 ])
