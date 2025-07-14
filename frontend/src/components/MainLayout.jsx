@@ -4,9 +4,9 @@ import LeftSidebar from './LeftSidebar'
 
 const MainLayout = () => {
   return (
-    <div>
+    <div className="flex">
          <LeftSidebar/>
-        <div>
+        <div className="flex-1 ml-[16%]">
             <Outlet/>
         </div>
     </div>
